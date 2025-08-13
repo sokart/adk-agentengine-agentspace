@@ -11,7 +11,7 @@ export AS_LOCATION="PLACEHOLDER - REPLACE WITH YOUR AGENT SPACE APPLICATION LOCA
 
 export AGENT_DISPLAY_NAME="teaching-assistant-agent" # String - this will appear as the name of the agent into your AgentSpace
 AGENT_DESCRIPTION=$(cat <<EOF
-This agent acts as a friendly teaching assistant, checking the grammar of kids' questions, performing math calculations using corrected or original text (if grammatically correct), and providing results or grammar feedback in a friendly tone.
+This agent acts as a friendly teaching assistant, checking the grammar of kids\' questions, performing math calculations using corrected or original text (if grammatically correct), and providing results or grammar feedback in a friendly tone.
 EOF
 )
 export AGENT_DESCRIPTION
