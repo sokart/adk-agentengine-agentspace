@@ -188,12 +188,19 @@ if __name__ == '__main__':
     vertexai.init( project=GOOGLE_CLOUD_PROJECT, 
                   location=GOOGLE_CLOUD_LOCATION,
                   staging_bucket=bucket_url,)
-    
+
     deployed_agent_app = AdkApp(agent=root_agent,enable_tracing=True,)
     if(IS_REMOTE_DEPLOYMENT == 0):
         deployed_agent = deployed_agent_app
     else:
-         deployed_agent = agent_engines.create(deployed_agent_app, display_name="teaching-assistant-agent", requirements=["google-cloud-aiplatform[adk,agent_engines]"], extra_packages = ["./agent_grammar", "./agent_maths", "./agent_summary"])
+         deployed_agent = agent_engines.create(deployed_agent_app, 
+                                               display_name="teaching-assistant-agent", 
+                                               env_vars={
+                                                    "GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY": "true",
+                                                    "OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT": "true",
+                                                    },
+                                                requirements=["google-cloud-aiplatform[adk,agent_engines]"], 
+                                                extra_packages = ["./agent_grammar", "./agent_maths", "./agent_summary"])
 
     user_id = "user"
 
