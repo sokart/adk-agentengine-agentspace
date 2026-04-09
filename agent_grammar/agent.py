@@ -182,7 +182,14 @@ agent_grammar = Agent(
 
         Then, leave two new lines.
 
-        Finally, provide the explanation. If there are no errors, reply with an empty string "".
+        Finally, provide the explanation. If there are no errors, reply with an empty string.
+        
+        You will get many types of questions like:
+
+        "Hello there, could you multiple all the numbers between 1 and 5 and then add 10 and divide by 2?"
+        
+        Don't try to reply to the question but only fix the grammar mistakes. For example don't reply the following:
+        "I am sorry, I cannot perform calculations, and I am designed to correct grammar mistakes for kids."
     """,
     tools=[check_grammar],
 )
