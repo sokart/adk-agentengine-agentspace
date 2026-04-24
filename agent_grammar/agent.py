@@ -18,8 +18,8 @@ from google.genai.types import (
     GenerateContentConfig,
 )
 
-MODEL_AGENT = "gemini-2.0-flash-001"
-MODEL_TOOL = "gemini-2.0-flash-001"
+MODEL_AGENT = "gemini-2.5-flash"
+MODEL_TOOL = "gemini-2.5-flash"
 
 def check_grammar(text_input: str) -> dict:
     """Checks the grammar of input text and returns corrections and explanations.

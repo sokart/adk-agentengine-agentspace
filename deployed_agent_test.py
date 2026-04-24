@@ -72,12 +72,12 @@ if __name__ == '__main__':
     GOOGLE_CLOUD_LOCATION = os.getenv("GOOGLE_CLOUD_LOCATION")
 
     AGENT_ENGINE_ID = 'PLACEHOLDER - REPLACE WITH YOUR AGENT ENGINE ID' # Normally a 18-digit number - it is a number not a string 
+    AGENT_ENGINE_ID = '7674336624934649856'
     
     vertexai.init(
         project=GOOGLE_CLOUD_PROJECT,
         location=GOOGLE_CLOUD_LOCATION,
     )
-
     
     print("--------------------------")
     print("---- Get Agent Engine ----")
