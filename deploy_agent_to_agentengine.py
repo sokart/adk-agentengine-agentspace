@@ -22,7 +22,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Get the model ID from the environment variable
-MODEL = os.getenv("MODEL", "gemini-2.0-flash") # The model ID for the agent
+MODEL = os.getenv("MODEL", "gemini-2.5-flash") # The model ID for the agent
 
 GOOGLE_CLOUD_PROJECT = os.getenv("GOOGLE_CLOUD_PROJECT")
 GOOGLE_CLOUD_LOCATION = os.getenv("GOOGLE_CLOUD_LOCATION")
@@ -196,13 +196,13 @@ if __name__ == '__main__':
     else:
         deployed_agent = client.agent_engines.create(agent=deployed_agent_app, 
                                               config={
-                                                "display_name":"teaching-assistant-agent-test-id", 
+                                                "display_name":"teaching-assistant-agent-test-id-ot", 
                                                 "env_vars":{
                                                         "GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY": "true",
                                                         "OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT": "true",
                                                         },
                                                     "identity_type": types.IdentityType.AGENT_IDENTITY,
-                                                    "requirements":["google-cloud-aiplatform[adk,agent_engines]"], 
+                                                    "requirements":["google-cloud-aiplatform[adk,agent_engines]", "opentelemetry-instrumentation-google-genai"], 
                                                     "extra_packages": ["./agent_grammar", "./agent_maths", "./agent_summary"],
                                                     "staging_bucket": bucket_url
                                                 })
