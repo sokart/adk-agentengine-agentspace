@@ -107,7 +107,7 @@ def divide(numbers: list[int]) -> float:  # Use float for division
         result /= num
     return result
 
-MODEL = "gemini-2.5-flash"
+MODEL = "gemini-3.5-flash"
 
 agent_math = Agent(
     model=MODEL,
