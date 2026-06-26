@@ -5,7 +5,7 @@ import json
 import vertexai
 from vertexai import types
 from vertexai import agent_engines
-from vertexai.preview.reasoning_engines import AdkApp
+from vertexai.agent_engines import AdkApp
 
 from google.adk.agents import SequentialAgent
 
